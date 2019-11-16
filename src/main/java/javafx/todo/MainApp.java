@@ -20,10 +20,10 @@ public class MainApp extends Application {
                 .baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
-        final FXMLLoader loader = loadFXML("todoApp");
+        var todoList = loadFXML("todo_list");
         var todoHttpClient = retrofit.create(TodoHttpClient.class);
-        loader.setController(new TodoListController(todoHttpClient));
-        var scene = new Scene(loader.load(), 800, 400);
+        todoList.setController(new TodoListController(todoHttpClient));
+        var scene = new Scene(todoList.load(), 800, 400);
 
         stage.setTitle("TodoApp | JavaFX and Maven");
         stage.setScene(scene);
