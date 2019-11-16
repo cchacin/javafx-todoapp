@@ -32,7 +32,7 @@
                 <configuration>
                     <jlinkImageName>hellofx</jlinkImageName>
                     <launcher>launcher</launcher>
-                    <mainClass>javafx.todo.MainApp</mainClass>
+                    <mainClass>javafx.todo.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>

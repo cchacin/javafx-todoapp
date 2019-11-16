@@ -32,7 +32,7 @@ class ListController implements Initializable {
     }
     
     static FXMLLoader createLoader(HttpClient todoHttpClient) {
-        var todoList = new FXMLLoader(MainApp.class.getResource("todo_list.fxml"));
+        var todoList = new FXMLLoader(Main.class.getResource("todo_list.fxml"));
 
         todoList.setController(new ListController(todoHttpClient));
         

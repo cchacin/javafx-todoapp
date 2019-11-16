@@ -12,12 +12,12 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 @ExtendWith(ApplicationExtension.class)
-class MainAppTest implements WithAssertions {
-    private MainApp mainApp = new MainApp();
+class MainTest implements WithAssertions {
+    private Main main = new Main();
 
     @Start
     private void start(Stage stage) throws Exception {
-        mainApp.start(stage);
+        main.start(stage);
     }
 
     @Test
