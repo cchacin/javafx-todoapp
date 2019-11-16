@@ -23,9 +23,9 @@ class MainAppTest implements WithAssertions {
     @Test
     void test(FxRobot robot) throws Exception {
         // Given
+        final TableView<TodoItemRowModel> query = robot.lookup("#listView").query();
 
         // When
-        final TableView<TodoItemRowModel> query = robot.lookup("#listView").query();
         final ObservableList<TodoItemRowModel> items = query.getItems();
 
         // Then
