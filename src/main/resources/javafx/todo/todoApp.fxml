@@ -33,10 +33,10 @@
             </TableColumn>
             <TableColumn text="Title" prefWidth="400">
                 <cellValueFactory>
-                    <PropertyValueFactory property="title"/>
+                    <PropertyValueFactory property="title" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Completed?" prefWidth="50">
+            <TableColumn text="Completed?" prefWidth="100">
                 <cellValueFactory>
                     <PropertyValueFactory property="completed"/>
                 </cellValueFactory>

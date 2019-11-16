@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
 
 public class TodoListController implements Initializable {
 
@@ -28,9 +29,11 @@ public class TodoListController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        listView.getColumns().get(3).setCellFactory(callback -> new CheckBoxTableCell<>());
         Platform.runLater(() -> {
             final CompletableFuture<List<TodoItem>> todoItems = httpClient.getAll();
-            listView.getItems().addAll(todoItems.join().stream().map(TodoItemRowModel::new).collect(Collectors.toList()));
+            listView.getItems()
+                    .addAll(todoItems.join().stream().map(TodoItemRowModel::new).collect(Collectors.toList()));
         });
     }
 }
