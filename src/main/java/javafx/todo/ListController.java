@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
@@ -28,5 +29,13 @@ class ListController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         listView.getColumns().get(3).setCellFactory(callback -> new CheckBoxTableCell<>());
         Platform.runLater(() -> listView.getItems().addAll(httpClient.getAll().join()));
+    }
+    
+    static FXMLLoader createLoader(HttpClient todoHttpClient) {
+        var todoList = new FXMLLoader(MainApp.class.getResource("todo_list.fxml"));
+
+        todoList.setController(new ListController(todoHttpClient));
+        
+        return todoList;
     }
 }
