@@ -21,8 +21,8 @@ public class MainApp extends Application {
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
         var todoList = loadFXML("todo_list");
-        var todoHttpClient = retrofit.create(TodoHttpClient.class);
-        todoList.setController(new TodoListController(todoHttpClient));
+        var todoHttpClient = retrofit.create(HttpClient.class);
+        todoList.setController(new ListController(todoHttpClient));
         var scene = new Scene(todoList.load(), 800, 400);
 
         stage.setTitle("TodoApp | JavaFX and Maven");

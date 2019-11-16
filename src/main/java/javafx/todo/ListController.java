@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
 
-class TodoListController implements Initializable {
+class ListController implements Initializable {
 
     @FXML
     TableView<TodoItem> listView;
@@ -18,9 +18,9 @@ class TodoListController implements Initializable {
     @FXML
     Button button;
 
-    final TodoHttpClient httpClient;
+    final HttpClient httpClient;
 
-    TodoListController(TodoHttpClient httpClient) {
+    ListController(HttpClient httpClient) {
         this.httpClient = httpClient;
     }
 
