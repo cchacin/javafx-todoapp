@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
 
-public class TodoListController implements Initializable {
+class TodoListController implements Initializable {
 
     @FXML
     private TableView<TodoItem> listView;
@@ -22,7 +22,7 @@ public class TodoListController implements Initializable {
 
     private final TodoHttpClient httpClient;
 
-    public TodoListController(TodoHttpClient httpClient) {
+    TodoListController(TodoHttpClient httpClient) {
         this.httpClient = httpClient;
     }
 
