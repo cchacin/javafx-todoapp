@@ -28,10 +28,10 @@ interface HttpClient {
 
     @DELETE("todos/{id}")
     CompletableFuture<Void> delete(@Path("id") long id);
-    
-    static HttpClient create(String url) {
+
+    static HttpClient create() {
         var retrofit = new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
 
