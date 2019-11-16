@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -16,7 +15,7 @@ import javafx.scene.control.cell.CheckBoxTableCell;
 public class TodoListController implements Initializable {
 
     @FXML
-    private TableView<TodoItemRowModel> listView;
+    private TableView<TodoItem> listView;
 
     @FXML
     private Button button;
@@ -33,7 +32,7 @@ public class TodoListController implements Initializable {
         Platform.runLater(() -> {
             final CompletableFuture<List<TodoItem>> todoItems = httpClient.getAll();
             listView.getItems()
-                    .addAll(todoItems.join().stream().map(TodoItemRowModel::new).collect(Collectors.toList()));
+                    .addAll(todoItems.join());
         });
     }
 }
