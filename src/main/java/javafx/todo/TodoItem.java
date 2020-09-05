@@ -1,9 +1,7 @@
 package javafx.todo;
 
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+import javax.json.bind.annotation.JsonbCreator;
+import javax.json.bind.annotation.JsonbProperty;
 import java.util.Objects;
 
 public final class TodoItem {
@@ -12,34 +10,34 @@ public final class TodoItem {
     private final String  title;
     private final boolean completed;
 
-    @JsonCreator
+    @JsonbCreator
     public TodoItem(
-            @JsonProperty("id") final long id,
-            @JsonProperty("userId") final long userId,
-            @JsonProperty("title") final String title,
-            @JsonProperty("completed") final boolean completed) {
+            @JsonbProperty("id") final long id,
+            @JsonbProperty("userId") final long userId,
+            @JsonbProperty("title") final String title,
+            @JsonbProperty("completed") final boolean completed) {
         this.id = id;
         this.userId = userId;
         this.title = title;
         this.completed = completed;
     }
 
-    @JsonProperty("id")
+    @JsonbProperty("id")
     public long getId() {
         return id;
     }
 
-    @JsonProperty("userId")
+    @JsonbProperty("userId")
     public long getUserId() {
         return userId;
     }
 
-    @JsonProperty("title")
+    @JsonbProperty("title")
     public String getTitle() {
         return title;
     }
 
-    @JsonProperty("completed")
+    @JsonbProperty("completed")
     public boolean isCompleted() {
         return completed;
     }

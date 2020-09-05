@@ -23,7 +23,7 @@ interface HttpClient {
     @POST("todos")
     CompletableFuture<TodoItem> create(@Body TodoItem todoItem);
 
-    @PUT("todos/{id}")
+    @PUT("todos/{getId}")
     CompletableFuture<TodoItem> update(@Body TodoItem todoItem);
 
     @DELETE("todos/{id}")
@@ -32,7 +32,7 @@ interface HttpClient {
     static HttpClient create() {
         var retrofit = new Retrofit.Builder()
                 .baseUrl("https://jsonplaceholder.typicode.com/")
-                .addConverterFactory(JacksonConverterFactory.create())
+                .addConverterFactory(JsonbConverterFactory.create())
                 .build();
 
         return retrofit.create(HttpClient.class);
