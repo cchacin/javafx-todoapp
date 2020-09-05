@@ -12,17 +12,17 @@ final class JsonbResponseBodyConverter<T> implements Converter<ResponseBody, T> 
     private final Type type;
 
     JsonbResponseBodyConverter(
-            Jsonb jsonb,
-            Type type) {
+            final Jsonb jsonb,
+            final Type type) {
         this.jsonb = jsonb;
         this.type = type;
     }
 
     @Override
     public T convert(
-            ResponseBody value) throws IOException {
+            final ResponseBody value) throws IOException {
         try (value) {
-            return jsonb.fromJson(value.string(), this.type);
+            return this.jsonb.fromJson(value.string(), this.type);
         }
     }
 }

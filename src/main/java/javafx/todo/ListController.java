@@ -21,18 +21,18 @@ class ListController implements Initializable {
 
     final HttpClient httpClient;
 
-    ListController(HttpClient httpClient) {
+    ListController(final HttpClient httpClient) {
         this.httpClient = httpClient;
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        listView.getColumns().get(3).setCellFactory(callback -> new CheckBoxTableCell<>());
-        Platform.runLater(() -> listView.getItems().addAll(httpClient.getAll().join()));
+    public void initialize(final URL location, final ResourceBundle resources) {
+        this.listView.getColumns().get(3).setCellFactory(callback -> new CheckBoxTableCell<>());
+        Platform.runLater(() -> this.listView.getItems().addAll(this.httpClient.getAll().join()));
     }
 
-    static FXMLLoader createLoader(HttpClient todoHttpClient) {
-        var todoList = new FXMLLoader(Main.class.getResource("todo_list.fxml"));
+    static FXMLLoader createLoader(final HttpClient todoHttpClient) {
+        final var todoList = new FXMLLoader(Main.class.getResource("todo_list.fxml"));
 
         todoList.setController(new ListController(todoHttpClient));
 

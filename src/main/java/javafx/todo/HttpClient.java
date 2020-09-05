@@ -24,7 +24,7 @@ interface HttpClient {
     CompletableFuture<Void> delete(@Path("id") long id);
 
     static HttpClient create() {
-        var retrofit = new Retrofit.Builder()
+        final var retrofit = new Retrofit.Builder()
                 .baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(JsonbConverterFactory.create())
                 .build();

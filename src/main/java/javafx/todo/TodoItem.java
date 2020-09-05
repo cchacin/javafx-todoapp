@@ -24,51 +24,51 @@ public final class TodoItem {
 
     @JsonbProperty("id")
     public long getId() {
-        return id;
+        return this.id;
     }
 
     @JsonbProperty("userId")
     public long getUserId() {
-        return userId;
+        return this.userId;
     }
 
     @JsonbProperty("title")
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     @JsonbProperty("completed")
     public boolean isCompleted() {
-        return completed;
+        return this.completed;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (o == null || this.getClass() != o.getClass()) {
             return false;
         }
-        TodoItem todoItem = (TodoItem) o;
-        return getId() == todoItem.getId() &&
-                getUserId() == todoItem.getUserId() &&
-                isCompleted() == todoItem.isCompleted() &&
-                getTitle().equals(todoItem.getTitle());
+        final TodoItem todoItem = (TodoItem) o;
+        return this.getId() == todoItem.getId() &&
+                this.getUserId() == todoItem.getUserId() &&
+                this.isCompleted() == todoItem.isCompleted() &&
+                this.getTitle().equals(todoItem.getTitle());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getUserId(), getTitle(), isCompleted());
+        return Objects.hash(this.getId(), this.getUserId(), this.getTitle(), this.isCompleted());
     }
 
     @Override
     public String toString() {
         return "TodoItem{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", title='" + title + '\'' +
-                ", completed=" + completed +
+                "id=" + this.id +
+                ", userId=" + this.userId +
+                ", title='" + this.title + '\'' +
+                ", completed=" + this.completed +
                 '}';
     }
 }

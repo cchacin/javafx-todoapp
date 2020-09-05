@@ -18,7 +18,7 @@ public final class JsonbConverterFactory extends Converter.Factory {
     }
 
     public static JsonbConverterFactory create(
-            Jsonb jsonb) {
+            final Jsonb jsonb) {
         Objects.requireNonNull(jsonb, "Jsonb instance can not be null");
         return new JsonbConverterFactory(jsonb);
     }
@@ -26,24 +26,24 @@ public final class JsonbConverterFactory extends Converter.Factory {
     private final Jsonb jsonb;
 
     private JsonbConverterFactory(
-            Jsonb jsonb) {
+            final Jsonb jsonb) {
         this.jsonb = jsonb;
     }
 
     @Override
     public Converter<ResponseBody, ?> responseBodyConverter(
-            Type type,
-            Annotation[] annotations,
-            Retrofit retrofit) {
-        return new JsonbResponseBodyConverter<>(jsonb, type);
+            final Type type,
+            final Annotation[] annotations,
+            final Retrofit retrofit) {
+        return new JsonbResponseBodyConverter<>(this.jsonb, type);
     }
 
     @Override
     public Converter<?, RequestBody> requestBodyConverter(
-            Type type,
-            Annotation[] parameterAnnotations,
-            Annotation[] methodAnnotations,
-            Retrofit retrofit) {
-        return new JsonbRequestBodyConverter<>(jsonb, type);
+            final Type type,
+            final Annotation[] parameterAnnotations,
+            final Annotation[] methodAnnotations,
+            final Retrofit retrofit) {
+        return new JsonbRequestBodyConverter<>(this.jsonb, type);
     }
 }

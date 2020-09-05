@@ -15,16 +15,16 @@ final class JsonbRequestBodyConverter<T> implements Converter<T, RequestBody> {
     private final Type type;
 
     JsonbRequestBodyConverter(
-            Jsonb jsonb,
-            Type type) {
+            final Jsonb jsonb,
+            final Type type) {
         this.jsonb = jsonb;
         this.type = type;
     }
 
     @Override
     public RequestBody convert(
-            T value) throws IOException {
-        String json = this.jsonb.toJson(value, this.type);
+            final T value) throws IOException {
+        final String json = this.jsonb.toJson(value, this.type);
         return RequestBody.create(MEDIA_TYPE, json.getBytes());
     }
 }
