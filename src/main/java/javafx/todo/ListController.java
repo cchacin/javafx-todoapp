@@ -1,8 +1,5 @@
 package javafx.todo;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 class ListController implements Initializable {
 

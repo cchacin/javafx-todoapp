@@ -1,13 +1,12 @@
 package javafx.todo;
 
-import java.io.IOException;
-import java.lang.reflect.Type;
-
-import javax.json.bind.Jsonb;
-
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Converter;
+
+import javax.json.bind.Jsonb;
+import java.io.IOException;
+import java.lang.reflect.Type;
 
 final class JsonbRequestBodyConverter<T> implements Converter<T, RequestBody> {
     private static final MediaType MEDIA_TYPE = MediaType.get("application/json; charset=UTF-8");

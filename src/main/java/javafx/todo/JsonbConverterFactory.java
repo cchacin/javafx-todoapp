@@ -1,16 +1,15 @@
 package javafx.todo;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Type;
-import java.util.Objects;
-
-import javax.json.bind.Jsonb;
-import javax.json.bind.JsonbBuilder;
-
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
+
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Type;
+import java.util.Objects;
 
 public final class JsonbConverterFactory extends Converter.Factory {
 
