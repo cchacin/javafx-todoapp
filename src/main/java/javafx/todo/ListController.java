@@ -30,12 +30,12 @@ class ListController implements Initializable {
         listView.getColumns().get(3).setCellFactory(callback -> new CheckBoxTableCell<>());
         Platform.runLater(() -> listView.getItems().addAll(httpClient.getAll().join()));
     }
-    
+
     static FXMLLoader createLoader(HttpClient todoHttpClient) {
         var todoList = new FXMLLoader(Main.class.getResource("todo_list.fxml"));
 
         todoList.setController(new ListController(todoHttpClient));
-        
+
         return todoList;
     }
 }

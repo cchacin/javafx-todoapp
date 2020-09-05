@@ -5,9 +5,9 @@ import javax.json.bind.annotation.JsonbProperty;
 import java.util.Objects;
 
 public final class TodoItem {
-    private final long    id;
-    private final long    userId;
-    private final String  title;
+    private final long id;
+    private final long userId;
+    private final String title;
     private final boolean completed;
 
     @JsonbCreator
@@ -44,8 +44,12 @@ public final class TodoItem {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) { return true; }
-        if (o == null || getClass() != o.getClass()) { return false; }
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         TodoItem todoItem = (TodoItem) o;
         return getId() == todoItem.getId() &&
                 getUserId() == todoItem.getUserId() &&
