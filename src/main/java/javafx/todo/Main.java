@@ -15,7 +15,7 @@ public class Main extends Application {
     public void start(final Stage stage) throws Exception {
         final var todoHttpClient = HttpClient.create();
 
-        final var todoList = ListController.createLoader(todoHttpClient);
+        final var todoList = ListController.createLoader(() -> todoHttpClient.getAll().join());
 
         final var scene = new Scene(todoList.load(), 800, 400);
         stage.setTitle("TodoApp | JavaFX and Maven");
