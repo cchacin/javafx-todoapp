@@ -1,6 +1,7 @@
 package javafx.todo;
 
 import retrofit2.Retrofit;
+import retrofit2.converter.jsonb.JsonbConverterFactory;
 import retrofit2.http.*;
 
 import java.util.List;
